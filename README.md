@@ -104,3 +104,4 @@ The configuration file is saved at ~/.config/dcli/config.json. It has the follow
 ## License
 
 This project is licensed under the MIT License. See the LICENSE file for details.
+
