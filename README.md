@@ -27,11 +27,15 @@ dcli is a command-line tool for sending messages and managing channels using a D
 
 2. Build:
    Compile the program using:
-   g++ -std=c++17 -o dcli dcli.cpp -lcurl
+   make
 
-3. Run:
-   Execute the program:
-   ./dcli
+3. Install:
+   Install the binary to your system:
+   sudo make install
+
+4. Uninstall:
+   Remove the binary from your system:
+   sudo make uninstall
 
 ## Usage
 
@@ -98,16 +102,16 @@ Enter a name for this channel: general
 ## Configuration File
 
 The configuration file is saved at ~/.config/dcli/config.json. It has the following format:
-  
-{  
-    "token": "YOUR_DISCORD_BOT_TOKEN",  
-    "channels": {  
-        "general": "CHANNEL_ID_1",  
-        "random": "CHANNEL_ID_2"  
-    },  
-    "last_used_channel": "CHANNEL_ID_1"  
-}  
-  
+
+{
+    "token": "YOUR_DISCORD_BOT_TOKEN",
+    "channels": {
+        "general": "CHANNEL_ID_1",
+        "random": "CHANNEL_ID_2"
+    },
+    "last_used_channel": "CHANNEL_ID_1"
+}
+
 ## License
 
 This project is licensed under the MIT License. See the LICENSE file for details.
