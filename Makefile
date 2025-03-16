@@ -2,8 +2,8 @@ PREFIX ?= /usr/local
 BINDIR := $(PREFIX)/bin
 
 CXX = g++
-CXXFLAGS = -std=c++17 -Wall
-LDFLAGS = -lcurl
+CXXFLAGS = -std=c++17
+LDFLAGS = -lcurl -lssl -lcrypto
 
 dcli: dcli.cpp
 	$(CXX) $(CXXFLAGS) -o dcli dcli.cpp $(LDFLAGS)

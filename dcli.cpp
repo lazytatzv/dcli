@@ -405,12 +405,12 @@ int main(int argc, char *argv[]) {
                 } else if (command == "/switch") {
                     // チャンネルを切り替える
                     std::cout << "Select a channel to use:\n";
-                    int index = 1;
+                    size_t index = 1;
                     for (const auto& [name, id] : channels) {
                         std::cout << index++ << ". " << name << "\n";
                     }
                     std::cout << "Enter the number of the channel: ";
-                    int channel_index;
+                    size_t channel_index;
                     std::cin >> channel_index;
                     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // Clear the input buffer
                     if (channel_index > 0 && channel_index <= channels.size()) {
