@@ -371,6 +371,11 @@ int main(int argc, char *argv[]) {
                     continue_input = false;
                     break;
                 } else if (command == "/get") {
+                    // Reinitialize curl handle and headers for the /get request
+                    curl.reset(curl_easy_init());
+                    headers.reset(curl_slist_append(nullptr, "Content-Type: application/json"));
+                    headers.reset(curl_slist_append(headers.release(), ("Authorization: " + token).c_str()));
+
                     auto usernames = list_recent_usernames(curl, url, headers);
                     if (usernames.empty()) {
                         std::cout << "No recent messages found.\n";
