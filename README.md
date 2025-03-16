@@ -9,6 +9,13 @@ dcli is a command-line tool for sending messages and managing channels using a D
 - Retrieve User Messages: Fetch recent messages from a specific user.
 - Configuration File: Save token and channel information in a configuration file.
 
+## Requirements
+
+- C++17 or later
+- `libcurl` library
+- `libssl` and `libcrypto` libraries
+- `nlohmann/json` library
+
 ## Installation
 
 1. Install Dependencies:
@@ -104,4 +111,3 @@ The configuration file is saved at ~/.config/dcli/config.json. It has the follow
 ## License
 
 This project is licensed under the MIT License. See the LICENSE file for details.
-
