@@ -363,10 +363,14 @@ int main(int argc, char *argv[]) {
                 std::getline(std::cin, message);
                 message = trim(message); // Trim whitespace from the input
 
-                if (message == "/exit") {
+                // Trim command and check for specific commands
+                std::string command = message.substr(0, message.find(' '));
+                command = trim(command);
+
+                if (command == "/exit") {
                     continue_input = false;
                     break;
-                } else if (message == "/get") {
+                } else if (command == "/get") {
                     auto usernames = list_recent_usernames(curl, url, headers);
                     if (usernames.empty()) {
                         std::cout << "No recent messages found.\n";
@@ -389,7 +393,7 @@ int main(int argc, char *argv[]) {
                         std::cout << "Invalid selection.\n";
                     }
                     continue;
-                } else if (message == "/channel") {
+                } else if (command == "/channel") {
                     // 現在のチャンネル名を表示
                     for (const auto& [name, id] : channels) {
                         if (id == current_channel_id) {
@@ -398,7 +402,7 @@ int main(int argc, char *argv[]) {
                         }
                     }
                     continue;
-                } else if (message == "/switch") {
+                } else if (command == "/switch") {
                     // チャンネルを切り替える
                     std::cout << "Select a channel to use:\n";
                     int index = 1;
