@@ -199,7 +199,14 @@ std::string escape_json(const std::string& s) {
     }
     return o.str();
 }
-// ... [これ以前のコードは変更なし] ...
+
+// Function to trim whitespace from both ends of a string
+std::string trim(const std::string& str) {
+    size_t first = str.find_first_not_of(' ');
+    if (first == std::string::npos) return "";
+    size_t last = str.find_last_not_of(' ');
+    return str.substr(first, last - first + 1);
+}
 
 // メイン関数
 int main(int argc, char *argv[]) {
@@ -354,6 +361,7 @@ int main(int argc, char *argv[]) {
                 }
                 std::string message;
                 std::getline(std::cin, message);
+                message = trim(message); // Trim whitespace from the input
 
                 if (message == "/exit") {
                     continue_input = false;
