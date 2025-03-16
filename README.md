@@ -98,16 +98,16 @@ Enter a name for this channel: general
 ## Configuration File
 
 The configuration file is saved at ~/.config/dcli/config.json. It has the following format:
-
-{
-    "token": "YOUR_DISCORD_BOT_TOKEN",
-    "channels": {
-        "general": "CHANNEL_ID_1",
-        "random": "CHANNEL_ID_2"
-    },
-    "last_used_channel": "CHANNEL_ID_1"
-}
-
+  
+{  
+    "token": "YOUR_DISCORD_BOT_TOKEN",  
+    "channels": {  
+        "general": "CHANNEL_ID_1",  
+        "random": "CHANNEL_ID_2"  
+    },  
+    "last_used_channel": "CHANNEL_ID_1"  
+}  
+  
 ## License
 
 This project is licensed under the MIT License. See the LICENSE file for details.
