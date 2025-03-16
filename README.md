@@ -1,51 +1,106 @@
-# dcli
+# Discord CLI (dcli)
 
-## Description
-`dcli` is a simple command-line interface (CLI) application that allows you to send messages to a Discord channel directly from your terminal.
+dcli is a command-line tool for sending messages and managing channels using a Discord Bot.
 
 ## Features
-- Send messages to Discord using your bot's token.
-- Specify the target channel using the channel ID.
-- Configure token and channel ID through a configuration file or command-line arguments.
-- Supports message input directly from the terminal.
+
+- Send Messages: Send messages to the selected channel.
+- Channel Management: Add, remove, or switch channels.
+- Retrieve User Messages: Fetch recent messages from a specific user.
+- Configuration File: Save token and channel information in a configuration file.
 
 ## Installation
 
-To install `dcli`, you can follow these steps:
+1. Install Dependencies:
+   - libcurl
+   - nlohmann/json (C++ JSON library)
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/yourusername/dcli.git
-   cd dcli
-   ```
+   Run the following command:
+   sudo apt-get install libcurl4-openssl-dev
 
-2. Build the application using `make`:
-   ```bash
-   make
-   ```
+2. Build:
+   Compile the program using:
+   g++ -std=c++17 -o dcli dcli.cpp -lcurl
 
-3. Install it to your system:
-   ```bash
-   sudo make install
-   ```
-
-Once installed, you can run `dcli` from your terminal to send messages to a Discord channel.
+3. Run:
+   Execute the program:
+   ./dcli
 
 ## Usage
 
-### Command-line options:
+### Initial Setup
 
-- `--token <TOKEN>`: Set your Discord bot's token.
-- `--channel-id <CHANNEL_ID>`: Set the target Discord channel ID.
-- `--help`: Show the help message.
+On the first run, you will need to provide your Discord Bot token and channel ID.
 
-### Example:
+Example:
+./dcli
+Token: YOUR_DISCORD_BOT_TOKEN
+Channel ID: YOUR_CHANNEL_ID
+Enter a name for this channel: general
 
-To send a message to a channel, run:
-```bash
-dcli --token YOUR_BOT_TOKEN --channel-id CHANNEL_ID
-```
-You will be prompted to enter your message, and it will be sent to the specified channel.
+### Commands
+
+- Send a Message:
+  Example:
+  > Hello, world!
+  Message sent successfully!
+
+- Switch Channel:
+  Example:
+  > /switch
+  Select a channel to use:
+  1. general
+  2. random
+  Enter the number of the channel: 2
+  Switched to channel: random
+
+- Check Current Channel:
+  Example:
+  > /channel
+  Current channel: random
+
+- Retrieve User Messages:
+  Example:
+  > /get
+  Select a user to retrieve messages:
+  1. user1
+  2. user2
+  Enter the number of the user: 1
+  (Recent messages from the user will be displayed)
+
+- Add a Channel:
+  Example:
+  > /add
+  Enter Channel ID: NEW_CHANNEL_ID
+  Enter Channel Name: new_channel
+  Channel added successfully.
+
+- Remove a Channel:
+  Example:
+  > /remove
+  Select a channel to remove:
+  1. general
+  2. random
+  Enter the number of the channel: 2
+  Channel removed successfully.
+
+- Exit:
+  Example:
+  > /exit
+
+## Configuration File
+
+The configuration file is saved at ~/.config/dcli/config.json. It has the following format:
+
+{
+    "token": "YOUR_DISCORD_BOT_TOKEN",
+    "channels": {
+        "general": "CHANNEL_ID_1",
+        "random": "CHANNEL_ID_2"
+    },
+    "last_used_channel": "CHANNEL_ID_1"
+}
 
 ## License
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+This project is licensed under the MIT License. See the LICENSE file for details.
